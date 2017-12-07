@@ -1,7 +1,7 @@
 module Apipie
   module Helpers
     def markup_to_html(text)
-      return "" if text.nil?
+      return '' if text.nil?
       if Apipie.configuration.markup.respond_to? :to_html
         Apipie.configuration.markup.to_html(text.strip_heredoc)
       else
@@ -12,7 +12,7 @@ module Apipie
     attr_accessor :url_prefix
 
     def request_script_name
-      Thread.current[:apipie_req_script_name] || ""
+      Thread.current[:apipie_req_script_name] || ''
     end
 
     def request_script_name=(script_name)
@@ -21,14 +21,14 @@ module Apipie
 
     def full_url(path)
       unless @url_prefix
-        @url_prefix = ""
+        @url_prefix = ''
         @url_prefix << request_script_name
         @url_prefix << Apipie.configuration.doc_base_url
       end
-      path = path.sub(/^\//,"")
+      path = path.sub(/^\//, '')
       ret = "#{@url_prefix}/#{path}"
-      ret.insert(0,"/") unless ret =~ /\A[.\/]/
-      ret.sub!(/\/*\Z/,"")
+      ret.insert(0, '/') unless ret =~ /\A[.\/]/
+      ret.sub!(/\/*\Z/, '')
       ret
     end
 
@@ -51,22 +51,22 @@ module Apipie
 
     def label_class_for_error(err)
       case err[:code]
-        when 200
-          'label label-info'
-        when 201
-          'label label-success'
-        when 204
-          'label label-info2'
-        when 401
-          'label label-warning'
-        when 403
-          'label label-warning2'
-        when 422
-          'label label-important'
-        when 404
-          'label label-inverse'
-        else
-          'label'
+      when 200
+        'label label-info'
+      when 201
+        'label label-success'
+      when 204
+        'label label-info2'
+      when 401
+        'label label-warning'
+      when 403
+        'label label-warning2'
+      when 422
+        'label label-important'
+      when 404
+        'label label-inverse'
+      else
+        'label'
       end
     end
   end

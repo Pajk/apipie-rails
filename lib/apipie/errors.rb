@@ -1,5 +1,4 @@
 module Apipie
-
   class Error < StandardError
   end
 
@@ -20,14 +19,14 @@ module Apipie
 
   class ParamMissing < DefinedParamError
     def to_s
-      unless @param.options[:missing_message].nil?
-        if @param.options[:missing_message].kind_of?(Proc)
+      if @param.options[:missing_message].nil?
+        "Missing parameter #{@param.name}"
+      else
+        if @param.options[:missing_message].is_a?(Proc)
           @param.options[:missing_message].call
         else
           @param.options[:missing_message].to_s
         end
-      else
-        "Missing parameter #{@param.name}"
       end
     end
   end
@@ -51,5 +50,4 @@ module Apipie
       "Invalid parameter '#{@param}' value #{@value.inspect}: #{@error}"
     end
   end
-
 end
