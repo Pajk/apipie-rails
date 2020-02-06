@@ -1,6 +1,13 @@
  Changelog
 ===========
 
+[v0.5.17.1](https://github.com/Apipie/apipie-rails/tree/v0.5.17.1) (2020-02-06)
+--------
+
+[Full Changelog](https://github.com/Apipie/apipie-rails/compare/v0.5.17...v0.5.17.1)
+
+- Fix issue that prevents streaming responses ([goronfreeman](https://github.com/goronfreeman/))
+
 [v0.5.17](https://github.com/Apipie/apipie-rails/tree/v0.5.17) (2020-01-20)
 --------
 
