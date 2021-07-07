@@ -1135,6 +1135,8 @@ For an enumeration type:
     value ? value.split(',') : []
    end
 
+The processed value will be available in ``@api_params``.
+
 ============
  Validators
 ============
